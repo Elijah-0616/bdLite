@@ -1,0 +1,49 @@
+<!--
+ * @Author: elijah
+ * @Date: 2021-11-26 14:13:24
+ * @LastEditTime: 2021-12-02 14:54:48
+ * @LastEditors: Elijah
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \baidu\index.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2.0,user-scalable=yes" />
+    <title>fxxkbaidu</title>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="shortcut icon" href="images/baidu.png" />
+</head>
+
+<body>
+
+    <div>
+
+        <form name="search" onsubmit="bottomForm();">
+            <table>
+                <tr>
+                    <td id="search">
+                        <div id="keyword-box">
+                            <label for="search-box"></label>
+                            <input id="search-box" name="key" value="" placeholder="输入并搜索" autocomplete="off">
+                        </div>
+                    </td>
+                    <td id="btn-search">
+                        <button class="button" type="submit">搜索</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <canvas id="scene"></canvas>
+    <script type="text/javascript" src="./javascript/scene.js"></script>
+    <script type="module" src="./javascript/earth.js"></script>
+    <canvas id="gradient-canvas" data-js-darken-top data-transition-in>
+    </canvas>
+    <script type="text/javascript" src="./javascript/bg.js"></script>
+
+</body>
