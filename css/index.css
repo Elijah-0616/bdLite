@@ -37,12 +37,12 @@ body {
 }
 
 table {
-    width: 750px;
+    width: 90vmin;
     text-decoration: none;
     position: fixed;
-    top: 20%;
+    top: 12em;
     left: 50%;
-    margin-left: -375px;
+    margin-left: -45vmin;
 }
 
 th,
@@ -51,29 +51,33 @@ td {
 }
 
 #search {
-    width: 550px;
+    width: 100vmin;
 }
 
 #keyword-box {
-    height: 50px;
-    font-size: 24px;
+    height: 6vmin;
+    /*
+    不知道为什么字体大小会使搜索框垂直坐标轴发生便宜，这TM是什么bug???我找了那么久。。。艹艹艹艹艹艹！！！
+    font-size: 24vmin;
+     */
 }
 
 #search-box {
-    font-size: 20px;
-    padding-left: 50px;
+    font-size: 2.2vmin;
+    padding-left: 5.2vmin;
     width: 90%;
+    height: 6vmin;
     line-height: 50px;
     border: 0;
-    border-radius: 36px;
+    border-radius: 36rem;
     opacity: 0.5;
     background-image: url(../images/baidu.png);
     background-repeat: no-repeat;
-    background-position: 10px, 0;
-    background-size: 36px;
+    background-position: 0.6em, 0;
+    background-size: 1.5em;
     box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, .5),
-        7px 7px 20px 0 rgba(0, 0, 0, .1),
-        4px 4px 5px 0 rgba(0, 0, 0, .1);
+    7px 7px 20px 0 rgba(0, 0, 0, .1),
+    4px 4px 5px 0 rgba(0, 0, 0, .1);
 }
 
 #search-box:focus {
@@ -84,18 +88,18 @@ td {
 }
 
 #btn-search {
-    width: 120px;
+    width: 20vmin;
+    height: 6vmin;
 }
 
 /* 9 */
 .button {
-    width: 130px;
-    height: 50px;
+    width: 100%;
+    height: 6vmin;
     color: #fff;
-    border-radius: 50px;
-    padding: 10px 25px;
+    border-radius: 5rem;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2.2vmin;
     text-align: center;
     background: transparent;
     cursor: pointer;
@@ -103,8 +107,8 @@ td {
     position: relative;
     display: inline-block;
     box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, .5),
-        7px 7px 20px 0 rgba(0, 0, 0, .1),
-        4px 4px 5px 0 rgba(0, 0, 0, .1);
+    7px 7px 20px 0 rgba(0, 0, 0, .1),
+    4px 4px 5px 0 rgba(0, 0, 0, .1);
     outline: none;
 }
 
@@ -130,9 +134,9 @@ td {
 .button:hover {
     background: transparent;
     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
-        -4px -4px 6px 0 rgba(116, 125, 136, .2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
-        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
     color: #fff;
 }
 
@@ -140,9 +144,9 @@ td {
     -webkit-transform: scale(2) rotate(180deg);
     transform: scale(2) rotate(180deg);
     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
-        -4px -4px 6px 0 rgba(116, 125, 136, .2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
-        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
 }
 
 @keyframes sun {
