@@ -1,8 +1,8 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-10 21:36:48
- * @LastEditors: Elijah
+ * @LastEditTime: 2022-01-11 02:59:09
+ * @LastEditors: Timber.Wang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \baidu\index.html
 -->
@@ -10,41 +10,88 @@
 <html lang="zh">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2.0,user-scalable=yes" />
-    <title>S-light</title>
-    <script type="text/javascript" src="./javascript/index.js"></script>
-    <link rel="stylesheet" href="./css/index.css" />
-    <link rel="shortcut icon" href="images/baidu.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2.0,user-scalable=yes" />
+  <title>S-light</title>
+  <script type="text/javascript" src="./javascript/index.js"></script>
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="shortcut icon" href="images/baidu.png" />
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 
 <body>
 
-    <div>
+  <div id="app">
+    <form name="search">
+      <table>
+        <tr>
+          <td id="search">
+            <div id="keyword-box">
 
-        <form name="search" onsubmit="bottomForm();">
-            <table>
-                <tr>
-                    <td id="search">
-                        <div id="keyword-box">
-                            <label for="search-box"></label>
-                            <input id="search-box" name="key" value="" placeholder="输入并搜索" autocomplete="off">
-                        </div>
-                    </td>
-                    <td id="btn-search">
-                        <button class="button" type="submit">搜索:)</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    <canvas id="scene"></canvas>
-    <script type="text/javascript" src="./javascript/scene.js"></script>
-    <script type="module" src="./javascript/earth.js"></script>
-    <canvas id="gradient-canvas" data-js-darken-top data-transition-in>
-    </canvas>
-    <script type="text/javascript" src="./javascript/bg.js"></script>
+              <div>
+                <el-input placeholder="请输入内容" v-model="input">
+                  <el-select v-model="selectUrl" slot="prepend" placeholder="请选择" id="select-box">
+                    <el-option label="百度" value="https://www.baidu.com/s?wd=" @click="selectBd"></el-option>
+                    <el-option label="B站" value="https://search.bilibili.com/all?keyword="></el-option>
+                    <el-option label="谷歌" value="https://www.google.com/search?q="></el-option>
+                  </el-select>
+                </el-input>
+              </div>
+
+              <!-- <label for="search-box"></label> -->
+              <!-- <input id="search-box" name="key" value="" placeholder="输入并搜索" autocomplete="off"> -->
+            </div>
+          </td>
+
+          <td id="btn-search">
+            <button class="button" type="submit" @click="bottomForm">搜索:)</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+  </div>
+
+  <canvas id="scene"></canvas>
+  <script type="text/javascript" src="./javascript/scene.js"></script>
+  <script type="module" src="./javascript/earth.js"></script>
+  <canvas id="gradient-canvas" data-js-darken-top data-transition-in>
+  </canvas>
+  <script type="text/javascript" src="./javascript/bg.js"></script>
 
 </body>
+
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 全局 index.js -->
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        // 输入框内容
+        input: '',
+        // 选择的URL
+        selectUrl: '',
+      };
+    },
+
+    methods: {
+      // 点击搜索事件
+      bottomForm() {
+        console.log(this.input);
+        console.log(this.selectUrl);
+
+        const URL = this.selectUrl;
+        const a = this.input;
+        window.open(URL + a);
+        return false;
+      },
+    },
+  })
+</script>
+
 </html>
