@@ -44,3 +44,6 @@ git clone --recursive https://github.com/Elijah-0616/bdLite.git
 
 - 2022.1.11更新：
 > 增加了一些新的特性，实现选择搜索引擎查询
+
+- 2022.1.11更新：
+> 优化界面显示效果 :)
