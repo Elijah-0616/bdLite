@@ -1,7 +1,7 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-11 02:59:09
+ * @LastEditTime: 2022-01-11 12:07:46
  * @LastEditors: Timber.Wang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \baidu\index.html
@@ -31,10 +31,12 @@
 
               <div>
                 <el-input placeholder="请输入内容" v-model="input">
-                  <el-select v-model="selectUrl" slot="prepend" placeholder="请选择" id="select-box">
-                    <el-option label="百度" value="https://www.baidu.com/s?wd=" @click="selectBd"></el-option>
-                    <el-option label="B站" value="https://search.bilibili.com/all?keyword="></el-option>
+                  <el-select v-model="selectUrl" slot="prepend" placeholder="百度" id="select-box">
+                    <el-option label="百度" value="https://www.baidu.com/s?wd="></el-option>
+                    <el-option label="必应" value="https://cn.bing.com/search?q="></el-option>
                     <el-option label="谷歌" value="https://www.google.com/search?q="></el-option>
+                    <el-option label="B站" value="https://search.bilibili.com/all?keyword="></el-option>
+                    <el-option label="油管" value="https://www.youtube.com/results?search_query="></el-option>
                   </el-select>
                 </el-input>
               </div>
@@ -74,8 +76,8 @@
       return {
         // 输入框内容
         input: '',
-        // 选择的URL
-        selectUrl: '',
+        // 选择的URL，默认百度
+        selectUrl: "https://www.baidu.com/s?wd=",
       };
     },
 

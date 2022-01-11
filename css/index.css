@@ -62,6 +62,14 @@ td {
      */
 }
 
+/* 选择栏样式 */
+.el-select {
+  width: 80px;
+}
+
+/* 输入框样式 */
+.el-input {}
+
 
 /* 未启用 */
 #search-box {
