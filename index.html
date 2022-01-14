@@ -1,100 +1,128 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-11 12:07:46
+ * @LastEditTime: 2022-01-14 21:26:03
  * @LastEditors: Timber.Wang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \baidu\index.html
 -->
 <!DOCTYPE html>
 <html lang="zh">
-
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2.0,user-scalable=yes"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2.0,user-scalable=yes" />
     <title>S-light</title>
-    <!--<script type="text/javascript" src="./javascript/index.js"></script> -->
-    <link rel="stylesheet" href="./css/index.css"/>
-    <link rel="shortcut icon" href="https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/QQ%E5%9B%BE%E7%89%8720220111125629.png"/>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-</head>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="shortcut icon" href="https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/QQ%E5%9B%BE%E7%89%8720220111125629.png" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
 
-<body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  </head>
 
-<div id="app">
-    <form name="search">
+  <body>
+    <div id="app">
+      <form name="search">
         <table>
-            <tr>
-                <td id="search">
-                    <div id="keyword-box">
-
-                        <div>
-                            <el-input placeholder="请输入内容" v-model="input">
-                                <el-select v-model="selectUrl" slot="prepend" placeholder="百度" id="select-box">
-                                    <el-option label="百度" value="https://www.baidu.com/s?wd="></el-option>
-                                    <el-option label="必应" value="https://cn.bing.com/search?q="></el-option>
-                                    <el-option label="谷歌" value="https://www.google.com/search?q="></el-option>
-                                    <el-option label="B站" value="https://search.bilibili.com/all?keyword="></el-option>
-                                    <el-option label="油管"
-                                               value="https://www.youtube.com/results?search_query="></el-option>
-                                </el-select>
-                            </el-input>
-                        </div>
-
-                        <!-- <label for="search-box"></label> -->
-                        <!-- <input id="search-box" name="key" value="" placeholder="输入并搜索" autocomplete="off"> -->
-                    </div>
-                </td>
-
-                <td id="btn-search">
-                    <button class="button" type="submit" @click="bottomForm">搜索:)</button>
-                </td>
-            </tr>
+          <tr>
+            <td id="search">
+              <div id="keyword-box">
+                <div>
+                  <el-input placeholder="请输入内容" v-model="input">
+                    <el-select v-model="selectUrl" slot="prepend" placeholder="百度" id="select-box">
+                      <el-option label="百度" value="https://www.baidu.com/s?wd="></el-option>
+                      <el-option label="必应" value="https://cn.bing.com/search?q="></el-option>
+                      <el-option label="谷歌" value="https://www.google.com/search?q="></el-option>
+                      <el-option label="B站" value="https://search.bilibili.com/all?keyword="></el-option>
+                      <el-option label="油管" value="https://www.youtube.com/results?search_query="></el-option>
+                    </el-select>
+                  </el-input>
+                </div>
+              </div>
+            </td>
+            <!-- 搜索按钮 -->
+            <td id="btn-search">
+              <!-- <button class="button" type="submit" @click="bottomForm">搜索:)</button> -->
+              <el-button icon="el-icon-search" circle size="medium" @click="bottomForm"></el-button>
+            </td>
+            <!-- 设置中心抽屉按钮 -->
+            <td>
+              <el-button @click="drawer = true" circle size="medium" icon="el-icon-s-tools"></el-button>
+            </td>
+          </tr>
         </table>
-    </form>
+      </form>
 
-</div>
+      <!-- 设置抽屉 -->
+      <el-drawer title="设置中心" :visible.sync="drawer" :direction="direction">
+        <div>
+          动态页面效果
+          <el-switch v-model="dynamicBg" active-color="#13ce66" inactive-color="#ff4949" @change="dynamicBgSwitch()"></el-switch>
+        </div>
+      </el-drawer>
+    </div>
 
-<canvas id="scene"></canvas>
-<script type="text/javascript" src="./javascript/scene.js"></script>
-<script type="module" src="./javascript/earth.js"></script>
-<canvas id="gradient-canvas" data-js-darken-top data-transition-in>
-</canvas>
-<script type="text/javascript" src="./javascript/bg.js"></script>
+    <canvas id="scene"></canvas>
+    <canvas id="gradient-canvas" data-js-darken-top data-transition-in> </canvas>
+  </body>
 
-</body>
+  <!-- import 动态地球 -->
+  <script type="module" src="./javascript/earth.js"></script>
+  <!-- import 动态背景 -->
+  <script type="text/javascript" src="./javascript/bg.js"></script>
 
-<!-- import Vue before Element -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- import JavaScript -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<!-- 全局 index.js -->
-<script>
+  <!-- 全局 index.js -->
+  <script>
     new Vue({
-        el: '#app',
-        data() {
-            return {
-                // 输入框内容
-                input: '',
-                // 选择的URL，默认百度
-                selectUrl: "https://www.baidu.com/s?wd=",
-            };
+      el: '#app',
+      data() {
+        return {
+          // 输入框内容
+          input: '',
+          // 选择的URL，默认百度
+          selectUrl: 'https://www.baidu.com/s?wd=',
+          // 抽屉
+          drawer: false,
+          // 抽屉弹出方向
+          direction: 'rtl',
+          // 动态背景启用
+          dynamicBg: true
+        }
+      },
+      // 生命周期函数
+      created() {
+        this.initDynamicBackground()
+      },
+
+      // 方法区
+      methods: {
+        // 初始化动态背景
+        initDynamicBackground() {
+          gradient.initGradient('#gradient-canvas')
         },
 
-        methods: {
-            // 点击搜索事件
-            bottomForm() {
-                console.log(this.input);
-                console.log(this.selectUrl);
-
-                const URL = this.selectUrl;
-                const a = this.input;
-                window.open(URL + a);
-                return false;
-            },
+        // 控制动态背景按钮监听函数
+        dynamicBgSwitch: async function () {
+          if (this.dynamicBg == false) {
+            // 暂停动态背景
+            gradient.pause()
+          }
+          if (this.dynamicBg == true) {
+            // 播放动态背景
+            gradient.play()
+          }
         },
+
+        // 点击搜索事件
+        bottomForm() {
+          const URL = this.selectUrl
+          const a = this.input
+          window.open(URL + a)
+          return false
+        }
+      }
     })
-</script>
-
+  </script>
 </html>
