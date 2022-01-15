@@ -59,3 +59,7 @@ git clone --recursive https://github.com/Elijah-0616/bdLite.git
 - 2022.1.11 更新：
 
 > 优化界面显示效果 :)
+- 2022.1.15 更新：
+> 增加抽屉设置，可关闭动态背景
+> 新增毛玻璃效果
+> 优化移动端显示效果
