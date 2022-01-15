@@ -1,10 +1,10 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-14 21:26:03
- * @LastEditors: Timber.Wang
+ * @LastEditTime: 2022-01-16 00:07:27
+ * @LastEditors: Elijah
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \baidu\index.html
+ * @FilePath: \bdLite\index.html
 -->
 <!DOCTYPE html>
 <html lang="zh">
@@ -48,7 +48,7 @@
               <el-button icon="el-icon-search" circle size="medium" @click="bottomForm"></el-button>
             </td>
             <!-- 设置中心抽屉按钮 -->
-            <td>
+            <td id="btn-settings">
               <el-button @click="drawer = true" circle size="medium" icon="el-icon-s-tools"></el-button>
             </td>
           </tr>
@@ -64,7 +64,6 @@
       </el-drawer>
     </div>
 
-    <canvas id="scene"></canvas>
     <canvas id="gradient-canvas" data-js-darken-top data-transition-in> </canvas>
   </body>
 
