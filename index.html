@@ -1,8 +1,8 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-16 00:07:27
- * @LastEditors: Elijah
+ * @LastEditTime: 2022-01-17 02:45:21
+ * @LastEditors: Timber.Wang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \bdLite\index.html
 -->
@@ -30,7 +30,7 @@
             <td id="search">
               <div id="keyword-box">
                 <div>
-                  <el-input placeholder="请输入内容" v-model="input">
+                  <el-input placeholder="请输入内容" v-model="input" @keyup.enter.native="searchEnterFun">
                     <el-select v-model="selectUrl" slot="prepend" placeholder="百度" id="select-box">
                       <el-option label="百度" value="https://www.baidu.com/s?wd="></el-option>
                       <el-option label="必应" value="https://cn.bing.com/search?q="></el-option>
@@ -56,11 +56,42 @@
       </form>
 
       <!-- 设置抽屉 -->
-      <el-drawer title="设置中心" :visible.sync="drawer" :direction="direction">
-        <div>
-          动态页面效果
-          <el-switch v-model="dynamicBg" active-color="#13ce66" inactive-color="#ff4949" @change="dynamicBgSwitch()"></el-switch>
-        </div>
+      <el-drawer title="设置中心" size="25%" :visible.sync="drawer" :direction="direction">
+        <!-- 卡片一 -->
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>页面效果设置</span>
+          </div>
+
+          <div class="text item">
+            动态背景页面
+            <el-switch v-model="dynamicBg" active-color="#13ce66" inactive-color="#ff4949" @change="dynamicBgSwitch()"></el-switch>
+          </div>
+
+          <div class="text item">旋转地球效果</div>
+
+          <div class="text item">关闭所有效果</div>
+        </el-card>
+        <br />
+
+        <!-- 卡片二 -->
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>搜索设置</span>
+          </div>
+          <div class="text item">XXXXXXXX</div>
+          <div class="text item">XXXXXXXX</div>
+        </el-card>
+        <br />
+
+        <!-- 卡片三 -->
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>标签设置</span>
+          </div>
+          <div class="text item">XXXXXXXX</div>
+          <div class="text item">XXXXXXXX</div>
+        </el-card>
       </el-drawer>
     </div>
 
@@ -107,19 +138,42 @@
           if (this.dynamicBg == false) {
             // 暂停动态背景
             gradient.pause()
+            this.$message({
+              showClose: true,
+              message: '动态背景已关闭'
+            })
           }
           if (this.dynamicBg == true) {
             // 播放动态背景
             gradient.play()
+            this.$message({
+              showClose: true,
+              message: '动态背景已打开',
+              type: 'success'
+            })
           }
+        },
+
+        // 搜索输入框回车键监听
+        searchEnterFun() {
+          this.bottomForm()
         },
 
         // 点击搜索事件
         bottomForm() {
           const URL = this.selectUrl
           const a = this.input
-          window.open(URL + a)
-          return false
+          // 输入框判空
+          if (a === null || a === '' || typeof a === 'undefined') {
+            console.log('输入框空！')
+            this.$notify.info({
+              title: '输入框为空',
+              message: '您还没有输入搜索内容(～￣▽￣)～'
+            })
+          } else {
+            window.open(URL + a)
+            return false
+          }
         }
       }
     })
