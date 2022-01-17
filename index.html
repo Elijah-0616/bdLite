@@ -1,7 +1,7 @@
 <!--
  * @Author: elijah
  * @Date: 2021-11-26 14:13:24
- * @LastEditTime: 2022-01-17 02:45:21
+ * @LastEditTime: 2022-01-18 01:13:11
  * @LastEditors: Timber.Wang
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \bdLite\index.html
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="shortcut icon" href="https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/QQ%E5%9B%BE%E7%89%8720220111125629.png" />
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
-
     <!-- import Vue before Element -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <!-- import JavaScript -->
@@ -118,7 +117,9 @@
           // 抽屉弹出方向
           direction: 'rtl',
           // 动态背景启用
-          dynamicBg: true
+          dynamicBg: true,
+          // 小彩蛋
+          smallEggs: 0
         }
       },
       // 生命周期函数
@@ -156,6 +157,29 @@
 
         // 搜索输入框回车键监听
         searchEnterFun() {
+          this.smallEggs = this.smallEggs + 1
+          // console.log(this.smallEggs)
+          // 小彩蛋
+          if (this.smallEggs === 10) {
+            this.$confirm('即将为你导航到神秘网页，是否继续？', '恭喜你发现了一个彩蛋！', {
+              confirmButtonText: '去瞧瞧',
+              cancelButtonText: '算了吧',
+              roundButton: true,
+              type: 'success'
+            })
+              .then(() => {
+                window.open('https://github.com/Elijah-0616/bdLite')
+                return
+              })
+              .catch(() => {
+                this.$notify.warning({
+                  title: '你已取消前往神秘网页',
+                  message: '若想再次激活此彩蛋，请刷新网页！'
+                })
+                return
+              })
+          }
+          // 搜索功能
           this.bottomForm()
         },
 
@@ -165,7 +189,7 @@
           const a = this.input
           // 输入框判空
           if (a === null || a === '' || typeof a === 'undefined') {
-            console.log('输入框空！')
+            // console.log('输入框空！')
             this.$notify.info({
               title: '输入框为空',
               message: '您还没有输入搜索内容(～￣▽￣)～'
