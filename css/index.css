@@ -218,8 +218,20 @@ body>div.el-select-dropdown {
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* 修复选项直角问题 */
 body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default>ul>li {
-  border-radius: 20px;
+  background: none;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  transition: transform 0.1s ease-in-out;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+}
+
+body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default>ul>li:hover {
+  transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  transition: transform 0.1s ease-in-out;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
 }
 
 /* 输入框样式 */
