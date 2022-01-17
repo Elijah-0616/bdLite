@@ -15,6 +15,7 @@
     width: 86vmin !important;
     height: 10vmin !important;
   }
+
   #keyword-box>div {
     width: 76%;
     position: fixed;
@@ -22,13 +23,14 @@
     margin-left: -38%;
   }
 
-  #keyword-box>div > div {
+  #keyword-box>div>div {
     height: 10vmin !important;
   }
 
   #keyword-box>div>div>input {
     height: 10vmin !important;
   }
+
   #btn-search {
     position: fixed;
     margin-left: -5vmin;
@@ -44,7 +46,7 @@
   }
 
   /* 移动端抽屉样式 */
-  #app > div > div > div {
+  #app>div>div>div {
     width: 75% !important;
   }
 }
@@ -177,12 +179,14 @@ td {
 #el-drawer__title {
   margin-bottom: 16px;
 }
+
 /* 设置项开关按钮样式 */
 
-#app > div > div > div > section > div:nth-child(1) > div.el-card__body > div:nth-child(1) > div > span {
+#app>div>div>div>section>div:nth-child(1)>div.el-card__body>div:nth-child(1)>div>span {
   position: fixed;
   right: 5%;
 }
+
 #app>div>div>div>section>div {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.7);
@@ -219,7 +223,7 @@ body>div.el-select-dropdown {
 }
 
 /* 修复选项直角问题 */
-body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default>ul>li {
+body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap>ul>li {
   background: none;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -227,7 +231,7 @@ body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__w
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
 }
 
-body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default>ul>li:hover {
+body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap>ul>li:hover {
   transform: scale(1.25);
   -webkit-transform: scale(1.25);
   transition: transform 0.1s ease-in-out;
@@ -287,6 +291,7 @@ input::-ms-input-placeholder {
   transition: transform 0.3s ease-in-out;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
 }
+
 #keyword-box>div>div {
   height: 6vmin;
   border-radius: 5rem;
@@ -306,10 +311,11 @@ input::-ms-input-placeholder {
   backdrop-filter: blur(4px);
 }
 
-body > div.el-notification.right {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
+body>div.el-notification.right {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
 }
+
 /* 抽屉列表 - 未启用
 #app > div > div > div > section > div {
   padding-left: 0px;
