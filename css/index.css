@@ -5,28 +5,47 @@
 
 /* 流动布局（fluid grid)-----屏幕宽度<600px时，进行浮动 */
 @media screen and (max-width: 600px) {
+
   th,
   td {
     display: inline-block;
   }
 
-  #keyword-box > div {
+  #keyword-box {
+    width: 86vmin !important;
+    height: 10vmin !important;
+  }
+  #keyword-box>div {
     width: 76%;
     position: fixed;
     left: 50%;
     margin-left: -38%;
   }
+
+  #keyword-box>div > div {
+    height: 10vmin !important;
+  }
+
+  #keyword-box>div>div>input {
+    height: 10vmin !important;
+  }
   #btn-search {
     position: fixed;
     margin-left: -5vmin;
     left: 50%;
-    padding-top: 10%;
+    padding-top: 12%;
+    visibility: hidden;
   }
 
   #btn-settings {
-    position: fixed;
-    right: 5%;
-    top: 3%;
+    position: fixed !important;
+    right: 5% !important;
+    top: 3% !important;
+  }
+
+  /* 移动端抽屉样式 */
+  #app > div > div > div {
+    width: 75% !important;
   }
 }
 
@@ -65,12 +84,12 @@ body {
 */
 
 table {
-  width: 90vmin;
+  width: 86vmin;
   text-decoration: none;
   position: fixed;
   top: 12em;
   left: 50%;
-  margin-left: -45vmin;
+  margin-left: -43vmin;
 }
 
 th,
@@ -90,30 +109,55 @@ td {
 /* 搜索按钮样式 */
 
 #btn-search {
-  width: 10vmin;
+  width: 6vmin;
   height: 6vmin;
 }
 
-#btn-search > .el-button,
-#app > form > table > tbody > tr > td:nth-child(3) > button {
+#btn-search>button {
+  padding: 2vmin;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
   color: rgb(32, 32, 32);
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-#btn-search > .el-button--medium.is-circle,
-#app > form > table > tbody > tr > td:nth-child(3) > .el-button--medium.is-circle {
-  padding: 2vmin;
+/* 添加非线性动画 */
+#btn-search>button:hover {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-body
-  > div.el-select-dropdown.el-popper
-  > div.el-scrollbar
-  > div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default
-  > ul
-  > li {
-  border-radius: 20px;
+/* 设置按钮样式 */
+#btn-settings {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+}
+
+#btn-settings>button {
+  background: none;
+  border: none;
+  color: #000;
+}
+
+#btn-settings>button {
+  transform: scale(1.5) rotate(-90deg);
+  -webkit-transform: scale(1.5) rotate(-90deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+#btn-settings>button:hover {
+  transform: scale(2) rotate(90deg);
+  -webkit-transform: scale(2) rotate(90deg);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 /* 设置中的卡片样式 */
@@ -126,24 +170,56 @@ body
 }
 
 .box-card {
-  width: 430px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 5px auto;
+}
+
+#el-drawer__title {
+  margin-bottom: 16px;
+}
+/* 设置项开关按钮样式 */
+
+#app > div > div > div > section > div:nth-child(1) > div.el-card__body > div:nth-child(1) > div > span {
+  position: fixed;
+  right: 5%;
+}
+#app>div>div>div>section>div {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+  /* 非线性动画-出 */
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 非线性动画-入 */
+#app>div>div>div>section>div:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 /*选项样式 */
 
-#keyword-box > div > div > div {
+#keyword-box>div>div>div {
   border-radius: 30px 0 0 30px;
   background: rgba(255, 255, 255, 0.85);
   color: rgb(32, 32, 32);
   backdrop-filter: blur(4px);
 }
 
-body > div.el-select-dropdown {
+body>div.el-select-dropdown {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
   border-radius: 20px;
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap.el-scrollbar__wrap--hidden-default>ul>li {
+  border-radius: 20px;
 }
 
 /* 输入框样式 */
@@ -152,7 +228,7 @@ body > div.el-select-dropdown {
     opacity: 0.75;
 } */
 
-#keyword-box > div > div > input {
+#keyword-box>div>div>input {
   font-size: 16px;
   color: rgb(32, 32, 32);
   height: 6vmin;
@@ -162,7 +238,7 @@ body > div.el-select-dropdown {
 }
 
 /* 输入框占位符颜色 */
-#keyword-box > div > div > input::-webkit-input-placeholder {
+#keyword-box>div>div>input::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #888888;
 }
@@ -185,11 +261,21 @@ input::-ms-input-placeholder {
 /* 搜索框样式 */
 
 #keyword-box {
-  width: 75vmin;
+  width: 76vmin;
   height: 6vmin;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
 }
 
-#keyword-box > div > div {
+#keyword-box:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+#keyword-box>div>div {
   height: 6vmin;
   border-radius: 5rem;
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
@@ -203,15 +289,19 @@ input::-ms-input-placeholder {
 }
 
 /* 设置抽屉 */
-#app > div > div > div {
+#app>div>div>div {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
 }
 
-/* 抽屉列表 */
-#app > div > div > div > section > div {
-  padding-left: 20px;
+body > div.el-notification.right {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
 }
+/* 抽屉列表 - 未启用
+#app > div > div > div > section > div {
+  padding-left: 0px;
+} */
 
 /* 已删除，未启用
 .button {
