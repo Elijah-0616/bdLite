@@ -27,7 +27,11 @@
     height: 10vmin !important;
   }
 
-  .el-input__inner {
+  #select-box {
+    height: 10vmin !important;
+  }
+
+  #keyword-box>div>div>input {
     height: 10vmin !important;
   }
 
@@ -94,6 +98,10 @@ td {
 /* 选择栏样式 */
 .el-select {
   width: 80px;
+}
+
+#select-box {
+  height: 6vmin;
 }
 
 /* 搜索按钮样式 */
@@ -195,7 +203,6 @@ td {
 /*选项样式 */
 .el-input-group__prepend {
   border-radius: 30px 0 0 30px !important;
-  background: rgba(255, 255, 255, 0.85);
   color: rgb(32, 32, 32) !important;
   backdrop-filter: blur(4px);
 }
