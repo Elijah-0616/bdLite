@@ -142,24 +142,23 @@ class Path {
 const look = new THREE.Vector3(0, 0, 0);
 
 function render(a) {
+        // 地球旋转速度
+        group.rotation.y += 0.001;
 
-    // Rotate the whole scene
-    group.rotation.y += 0.001;
+        // 飞机飞行速度
+        subgroups.forEach(g => {
+            g.children[0].rotation.x += (g.speed * (g.reverse ? -1 : 0.5));
+        });
 
-    // Rotate each plane
-    subgroups.forEach(g => {
-        g.children[0].rotation.x += (g.speed * (g.reverse ? -1 : 1));
-    });
+        // Update each path
+        paths.forEach(path => {
+            if (path.vertices.length < 35000) {
+                path.update();
+            }
+        });
 
-    // Update each path
-    paths.forEach(path => {
-        if (path.vertices.length < 35000) {
-            path.update();
-        }
-    });
-
-    controls.update();
-    renderer.render(scene, camera);
+        controls.update();
+        renderer.render(scene, camera);
 }
 
 window.addEventListener("resize", onWindowResize, false);
