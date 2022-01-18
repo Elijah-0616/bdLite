@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-/* 流动布局（fluid grid)-----屏幕宽度<600px时，进行浮动 */
+/* 流动布局（fluid grid）-----屏幕宽度<600px时，进行浮动 */
 @media screen and (max-width: 600px) {
 
   th,
@@ -23,11 +23,11 @@
     margin-left: -38%;
   }
 
-  #keyword-box>div>div {
+  .el-input {
     height: 10vmin !important;
   }
 
-  #keyword-box>div>div>input {
+  .el-input__inner {
     height: 10vmin !important;
   }
 
@@ -73,18 +73,6 @@ body {
   --gradient-color-4: #ffba27;
 }
 
-/* 已删除
-#scene {
-    width: 12vmin;
-    height: 12vmin;
-    position: fixed;
-    top: 2%;
-    left: 102%;
-    margin-left: -21vmin;
-    background: rgba(255, 255, 255, 0);
-}
-*/
-
 table {
   width: 86vmin;
   text-decoration: none;
@@ -109,7 +97,6 @@ td {
 }
 
 /* 搜索按钮样式 */
-
 #btn-search {
   width: 6vmin;
   height: 6vmin;
@@ -181,7 +168,6 @@ td {
 }
 
 /* 设置项开关按钮样式 */
-
 #app>div>div>div>section>div:nth-child(1)>div.el-card__body>div:nth-child(1)>div>span {
   position: fixed;
   right: 5%;
@@ -207,11 +193,10 @@ td {
 }
 
 /*选项样式 */
-
-#keyword-box>div>div>div {
-  border-radius: 30px 0 0 30px;
+.el-input-group__prepend {
+  border-radius: 30px 0 0 30px !important;
   background: rgba(255, 255, 255, 0.85);
-  color: rgb(32, 32, 32);
+  color: rgb(32, 32, 32) !important;
   backdrop-filter: blur(4px);
 }
 
@@ -237,12 +222,6 @@ body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__w
   transition: transform 0.1s ease-in-out;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
 }
-
-/* 输入框样式 */
-/* .el-input {
-    width: 90%;
-    opacity: 0.75;
-} */
 
 #keyword-box>div>div>input {
   font-size: 16px;
@@ -275,7 +254,6 @@ input::-ms-input-placeholder {
 }
 
 /* 搜索框样式 */
-
 #keyword-box {
   width: 76vmin;
   height: 6vmin;
@@ -292,10 +270,18 @@ input::-ms-input-placeholder {
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
 }
 
-#keyword-box>div>div {
+.el-input {
   height: 6vmin;
   border-radius: 5rem;
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.el-input-group__prepend {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.el-input--suffix {
+  border-radius: 30px 0 0 30px;
 }
 
 #search-box:focus {
@@ -306,8 +292,8 @@ input::-ms-input-placeholder {
 }
 
 /* 设置抽屉 */
-#app>div>div>div {
-  background: rgba(255, 255, 255, 0.85);
+.el-drawer {
+  background-color: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(4px);
 }
 
@@ -316,62 +302,11 @@ body>div.el-notification.right {
   backdrop-filter: blur(4px);
 }
 
-/* 抽屉列表 - 未启用
-#app > div > div > div > section > div {
-  padding-left: 0px;
-} */
-
-/* 已删除，未启用
-.button {
-    width: 100%;
-    height: 6vmin;
-    color: #fff;
-    border-radius: 5rem;
-    font-weight: 500;
-    font-size: 2.2vmin;
-    text-align: center;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
-    outline: none;
+/* 小彩蛋弹窗 */
+.el-message-box {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(4px);
 }
-
-.button {
-    border: none;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.button:after {
-    position: absolute;
-    content: ' ';
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1fd1f9;
-    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
-    transition: all 0.3s ease;
-}
-
-.button:hover {
-    background: transparent;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5), -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5), inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
-    color: #fff;
-}
-
-.button:hover:after {
-    -webkit-transform: scale(2) rotate(180deg);
-    transform: scale(2) rotate(180deg);
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5), -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5), inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
-}
-*/
 
 @keyframes sun {
   100% {
