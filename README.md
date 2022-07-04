@@ -2,7 +2,7 @@
  * @Author: Timber.Wang
  * @Date: 2022-01-10 23:45:01
  * @LastEditors: Timber.Wang
- * @LastEditTime: 2022-01-11 22:20:31
+ * @LastEditTime: 2022-07-04 10:12:27
  * @Description:
 -->
 
@@ -26,9 +26,11 @@
 
 > <https://ce1estial.tk>
 
-### 本地运行
+### 本地运行(需要Nodejs环境)
 
-克隆项目到本地
+> 安装与配置Nodejs环境可参考：<https://timberkito.com/?p=145>
+
+1.克隆项目到本地
 
 > 如果你已经 fork 此项目，请将以下命令中的 Elijah-0616 替换为你的 Github 用户名。
 
@@ -36,7 +38,17 @@
 git clone --recursive https://github.com/Elijah-0616/bdLite.git
 ```
 
-用浏览器打开 index.html 文件
+2.在项目目录下初始化项目
+
+```bash
+npm install
+```
+
+3.运行项目
+
+```bash
+npm run serve
+```
 
 ## 更新日志
 
@@ -61,10 +73,16 @@ git clone --recursive https://github.com/Elijah-0616/bdLite.git
 > 优化界面显示效果 :)
 
 - 2022.1.15 更新：
+
 > 增加抽屉设置，可关闭动态背景
 > 新增毛玻璃效果
 > 优化移动端显示效果
 
-- 2022.1.17 更新
+- 2022.1.17 更新：
 
 > 添加鼠标悬停动画，重新适配移动端
+
+- 2022.7.4 项目重构：
+
+> 由于原项目基于单个HTML页面导入vue框架后过于臃肿
+> 现已将项目重构为基于Nodejs的方式部署vue
