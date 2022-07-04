@@ -144,4 +144,11 @@ export default {
 
 <style scoped>
 @import '../src/css/index.css';
+
+#app {
+  background: url('https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/1643434208435-1.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+}
 </style>
