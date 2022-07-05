@@ -2,11 +2,11 @@
  * @Author: Timber.Wang
  * @Date: 2022-04-09 17:02:54
  * @LastEditors: Timber.Wang
- * @LastEditTime: 2022-06-10 08:56:38
+ * @LastEditTime: 2022-07-05 09:44:49
  * @Description: 
 -->
 <template>
-  <div id="app">
+  <div id="app" :style="bgStyle">
     <form name="search">
       <table>
         <tr>
@@ -45,6 +45,7 @@
           <span>页面效果设置</span>
         </div>
         <div class="text item">切换背景图片</div>
+        <el-button round icon="el-icon-picture" size="small" @click="bgStyle()">点击切换</el-button>
         <div class="text item">XXXXXXXX</div>
       </el-card>
       <br />
@@ -92,7 +93,7 @@ export default {
   },
   // 生命周期函数
   created() {},
-  // 方法区
+  // 方法区（函数区）
   methods: {
     // 搜索输入框回车键监听
     searchEnterFun() {
@@ -131,12 +132,29 @@ export default {
         // console.log('输入框空！')
         this.$notify.info({
           title: '输入框为空',
-          message: '您还没有输入搜索内容(～￣▽￣)～'
+          message: '您还没有输入搜索内容(~￣▽￣)~'
         })
       } else {
         window.open(URL + a)
         return false
       }
+    }
+  },
+  // 计算属性函数区
+  computed: {
+    //动态背景图片
+    bgStyle: function () {
+      // 存放要换的图片
+      // let imgs = ['../src/images/bgimg/photo/bg1.jpg', '../src/images/bgimg/photo/bg2.jpg', '../src/images/bgimg/photo/bg3.jpg']
+      let imgs = [
+        'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_-4ee19fbc46214a70afb43d21ca43a503_1622734010445.jpg',
+        'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_7013453452-5f0f9c42ebdb4ac7a48eb36ac319427a_1622734011246.jpg',
+        'https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/1643434208435-1.jpg'
+      ]
+      let imgName = imgs[Math.floor(Math.random() * 3)] //进行计算随机
+      // 动态插入CSS样式
+      let style = "background:url('" + imgName + "'); background-repeat: round; height: 100%; width: 100%; background-size: 100% 100%;"
+      return style
     }
   }
 }
@@ -144,4 +162,11 @@ export default {
 
 <style scoped>
 @import '../src/css/index.css';
+
+/* #app {
+  background: url('https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/1643434208435-1.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+} */
 </style>
