@@ -1,8 +1,8 @@
 <!--
  * @Author: Timber.Wang
  * @Date: 2022-01-10 23:45:01
- * @LastEditors: Timber.Wang
- * @LastEditTime: 2022-07-04 10:12:27
+ * @LastEditors: Elijah
+ * @LastEditTime: 2022-07-04 23:47:02
  * @Description:
 -->
 
@@ -24,7 +24,7 @@
 
 ### 浏览器访问以下地址
 
-> <https://ce1estial.tk>
+> <http://slight.uniteor.cn/>
 
 ### 本地运行(需要Nodejs环境)
 

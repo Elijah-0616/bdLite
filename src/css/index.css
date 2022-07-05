@@ -3,54 +3,6 @@
   padding: 0;
 }
 
-/* 流动布局（fluid grid）-----屏幕宽度<600px时，进行浮动 */
-@media screen and (max-width: 600px) {
-
-  th,
-  td {
-    display: inline-block;
-  }
-
-  #keyword-box {
-    width: 86vmin !important;
-    height: 10vmin !important;
-  }
-
-  #keyword-box>div {
-    width: 76%;
-    position: fixed;
-    left: 50%;
-    margin-left: -38%;
-  }
-
-  .el-input {
-    height: 10vmin !important;
-  }
-
-  .el-input__inner {
-    height: 10vmin !important;
-  }
-
-  #btn-search {
-    position: fixed;
-    margin-left: -5vmin;
-    left: 50%;
-    padding-top: 12%;
-    visibility: hidden;
-  }
-
-  #btn-settings {
-    position: fixed !important;
-    right: 5% !important;
-    top: 3% !important;
-  }
-
-  /* 移动端抽屉样式 */
-  #app>div>div>div {
-    width: 75% !important;
-  }
-}
-
 html,
 body {
   display: flex;
@@ -105,6 +57,7 @@ td {
 #btn-search>button {
   padding: 2vmin;
   background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: rgb(32, 32, 32);
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
@@ -136,15 +89,15 @@ td {
 }
 
 #btn-settings>button {
-  transform: scale(1.5) rotate(-90deg);
   -webkit-transform: scale(1.5) rotate(-90deg);
+  transform: scale(1.5) rotate(-90deg);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
 
 #btn-settings>button:hover {
-  transform: scale(2) rotate(90deg);
   -webkit-transform: scale(2) rotate(90deg);
+  transform: scale(2) rotate(90deg);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
@@ -178,16 +131,16 @@ td {
   background: rgba(255, 255, 255, 0.7);
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
   /* 非线性动画-出 */
-  transform: scale(1);
   -webkit-transform: scale(1);
+  transform: scale(1);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
 
 /* 非线性动画-入 */
 #app>div>div>div>section>div:hover {
-  transform: scale(1.05);
   -webkit-transform: scale(1.05);
+  transform: scale(1.05);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
@@ -197,11 +150,13 @@ td {
   border-radius: 30px 0 0 30px !important;
   background: rgba(255, 255, 255, 0.85);
   color: rgb(32, 32, 32) !important;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 body>div.el-select-dropdown {
   background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border-radius: 20px;
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
@@ -210,17 +165,17 @@ body>div.el-select-dropdown {
 /* 修复选项直角问题 */
 body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap>ul>li {
   background: none;
-  transform: scale(1);
   -webkit-transform: scale(1);
-  transition: transform 0.1s ease-in-out;
+  transform: scale(1);
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__wrap.el-scrollbar__wrap>ul>li:hover {
-  transform: scale(1.25);
   -webkit-transform: scale(1.25);
-  transition: transform 0.1s ease-in-out;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transform: scale(1.25);
 }
 
 #keyword-box>div>div>input {
@@ -229,6 +184,7 @@ body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__w
   height: 6vmin;
   border-radius: 0 30px 30px 0;
   background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
@@ -257,23 +213,27 @@ input::-ms-input-placeholder {
 #keyword-box {
   width: 76vmin;
   height: 6vmin;
-  transform: scale(1);
   -webkit-transform: scale(1);
-  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 #keyword-box:hover {
-  transform: scale(1.05);
   -webkit-transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .el-input {
   height: 6vmin;
   border-radius: 5rem;
   box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5), 7px 7px 20px 0 rgba(0, 0, 0, 0.1), 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.el-input__inner {
+  height: 6vmin !important;
 }
 
 .el-input-group__prepend {
@@ -294,22 +254,75 @@ input::-ms-input-placeholder {
 /* 设置抽屉 */
 .el-drawer {
   background-color: rgba(255, 255, 255, 0.85) !important;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 body>div.el-notification.right {
   background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 /* 小彩蛋弹窗 */
 .el-message-box {
   background-color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 @keyframes sun {
   100% {
     background-position: -400% 0;
+  }
+}
+
+/* 流动布局（fluid grid）-----屏幕宽度<600px时，进行浮动 
+ * 样式引入顺序会影响优先级，请保持以下条目处于文档尾部，否则会导致页面显示错乱
+*/
+@media screen and (max-width: 600px) {
+
+  th,
+  td {
+    display: inline-block;
+  }
+
+  #keyword-box {
+    width: 86vmin !important;
+    height: 10vmin !important;
+  }
+
+  #keyword-box>div {
+    width: 76%;
+    position: fixed;
+    left: 50%;
+    margin-left: -38%;
+  }
+
+  .el-input {
+    height: 10vmin !important;
+  }
+
+  .el-input__inner {
+    height: 10vmin !important;
+  }
+
+  #btn-search {
+    position: fixed;
+    margin-left: -5vmin;
+    left: 50%;
+    padding-top: 12%;
+    visibility: hidden;
+  }
+
+  #btn-settings {
+    position: fixed !important;
+    right: 5% !important;
+    top: 3% !important;
+  }
+
+  /* 移动端抽屉样式 */
+  #app>div>div>div {
+    width: 75% !important;
   }
 }
