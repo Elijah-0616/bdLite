@@ -56,7 +56,7 @@ td {
 
 #btn-search>button {
   padding: 2vmin;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: rgb(32, 32, 32);
@@ -83,7 +83,7 @@ td {
 }
 
 #btn-settings>button {
-  background: none;
+  background: rgba(255, 255, 255, 0) !important;
   border: none;
   color: #000;
 }
@@ -148,14 +148,14 @@ td {
 /*选项样式 */
 .el-input-group__prepend {
   border-radius: 30px 0 0 30px !important;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
   color: rgb(32, 32, 32) !important;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 body>div.el-select-dropdown {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border-radius: 20px;
@@ -183,7 +183,7 @@ body>div.el-select-dropdown.el-popper>div.el-scrollbar>div.el-select-dropdown__w
   color: rgb(32, 32, 32);
   height: 6vmin;
   border-radius: 0 30px 30px 0;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
@@ -237,7 +237,7 @@ input::-ms-input-placeholder {
 }
 
 .el-input-group__prepend {
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .el-input--suffix {
@@ -253,20 +253,24 @@ input::-ms-input-placeholder {
 
 /* 设置抽屉 */
 .el-drawer {
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 body>div.el-notification.right {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
+.el-button {
+  background:rgba(255, 255, 255, 0.5 ) !important;
+}
+
 /* 小彩蛋弹窗 */
 .el-message-box {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
@@ -319,6 +323,7 @@ body>div.el-notification.right {
     position: fixed !important;
     right: 5% !important;
     top: 3% !important;
+    background: rgba(255, 255, 255, 0) !important;
   }
 
   /* 移动端抽屉样式 */
