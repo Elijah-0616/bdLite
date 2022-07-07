@@ -1,8 +1,8 @@
 <!--
  * @Author: Timber.Wang
  * @Date: 2022-04-09 17:02:54
- * @LastEditors: Elijah
- * @LastEditTime: 2022-07-05 16:38:07
+ * @LastEditors: Timber.Wang
+ * @LastEditTime: 2022-07-07 16:29:46
  * @Description: 
 -->
 <template>
@@ -45,7 +45,7 @@
           <span>页面效果设置</span>
         </div>
         <div class="text item">切换背景图片</div>
-        <el-button round icon="el-icon-picture" size="small" @click="bgStyle()">点击切换</el-button>
+        <el-button round icon="el-icon-picture" size="small" @click="overloadedStyle">点击切换</el-button>
         <div class="text item">XXXXXXXX</div>
       </el-card>
       <br />
@@ -85,14 +85,12 @@ export default {
       drawer: false,
       // 抽屉弹出方向
       direction: 'rtl',
-      // 动态背景启用
-      dynamicBg: true,
       // 小彩蛋
-      smallEggs: 0
+      smallEggsInit: 0
     }
   },
   // 生命周期函数
-  created() { },
+  created() {},
   // 方法区（函数区）
   methods: {
     // 搜索输入框回车键监听
@@ -138,25 +136,56 @@ export default {
         window.open(URL + a)
         return false
       }
+    },
+
+    /*
+      切换背景图片事件（屎山代码警告）
+      
+      原本考虑点击按钮后动态CSS加载的方式切换背景图片
+      但本人学艺不精，感觉实现起来有些困难
+      这里采用直接刷新页面方式来实现背景图片的随机切换
+     */
+    overloadedStyle() {
+      location.reload()
+      this.$message.success({
+        message: '切换背景图片成功！'
+      })
+      // this.$router.push('/index')
     }
   },
   // 计算属性函数区
   computed: {
-    //动态背景图片
+    // 加载动态背景图片
     bgStyle: function () {
       // 存放要换的图片
-      // let imgs = ['../src/images/bgimg/photo/bg1.jpg', '../src/images/bgimg/photo/bg2.jpg', '../src/images/bgimg/photo/bg3.jpg']
+      /*
+        直接从本地上加载图片
+      */
       let imgs = [
-        'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_-4ee19fbc46214a70afb43d21ca43a503_1622734010445.jpg',
-        'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_7013453452-5f0f9c42ebdb4ac7a48eb36ac319427a_1622734011246.jpg',
-        'https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/1643434208435-1.jpg',
-        'https://elijah-cq-1256924628.file.myqcloud.com/img/30A5BCB669FBC98314FF8FCC8F1152F7.png',
-        'https://elijah-cq-1256924628.file.myqcloud.com/img/3.png',
-        'https://elijah-cq-1256924628.file.myqcloud.com/img/2.png',
-        'https://elijah-cq-1256924628.file.myqcloud.com/img/1.png',
-        'https://elijah-cq-1256924628.file.myqcloud.com/img/DSCF2849.jpg'
+        '/static/img/bg/photo/bg1.jpg',
+        '/static/img/bg/photo/bg2.jpg',
+        '/static/img/bg/photo/bg3.jpg',
+        '/static/img/bg/color/1.png',
+        '/static/img/bg/color/2.png',
+        '/static/img/bg/color/3.png'
       ]
-      let imgName = imgs[Math.floor(Math.random() * 8)] //进行计算随机
+
+      /*
+        弃用远程连接加载背景图片
+      */
+      // let imgs = [
+      //   'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_-4ee19fbc46214a70afb43d21ca43a503_1622734010445.jpg',
+      //   'https://timber.oss-cn-chengdu.aliyuncs.com/img/blog/DSC_7013453452-5f0f9c42ebdb4ac7a48eb36ac319427a_1622734011246.jpg',
+      //   'https://timber.oss-cn-chengdu.aliyuncs.com/img/utool_up/1643434208435-1.jpg',
+      //   'https://elijah-cq-1256924628.file.myqcloud.com/img/30A5BCB669FBC98314FF8FCC8F1152F7.png',
+      //   'https://elijah-cq-1256924628.file.myqcloud.com/img/3.png',
+      //   'https://elijah-cq-1256924628.file.myqcloud.com/img/2.png',
+      //   'https://elijah-cq-1256924628.file.myqcloud.com/img/1.png',
+      //   'https://elijah-cq-1256924628.file.myqcloud.com/img/DSCF2849.jpg'
+      // ]
+
+      // console.log(imgs.length)
+      let imgName = imgs[Math.floor(Math.random() * imgs.length)] //进行计算随机
       // 动态插入CSS样式
       let style = "background:url('" + imgName + "'); background-repeat: round; height: 100%; width: 100%; background-size: 100% 100%;"
       return style
